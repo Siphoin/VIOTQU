@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Management;
+using System.Windows.Forms;
 
 namespace VIOTQU
 {
@@ -87,5 +88,6 @@ namespace VIOTQU
             windowsName = null;
             nameVideoAdapter = null;
         }
+
     }
 }

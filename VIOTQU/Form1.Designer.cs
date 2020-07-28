@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelWin = new System.Windows.Forms.Label();
@@ -37,10 +38,18 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelRAMString = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.buttonCopyToBuffer = new System.Windows.Forms.Button();
+            this.CPU = new System.Diagnostics.PerformanceCounter();
+            this.temp_cpu = new System.Windows.Forms.Label();
+            this.timerUpdateCPU = new System.Windows.Forms.Timer(this.components);
+            this.temp_ram = new System.Windows.Forms.Label();
+            this.RAM = new System.Diagnostics.PerformanceCounter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CPU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RAM)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -130,12 +139,67 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.UseWaitCursor = true;
             // 
+            // buttonCopyToBuffer
+            // 
+            this.buttonCopyToBuffer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCopyToBuffer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCopyToBuffer.ForeColor = System.Drawing.Color.White;
+            this.buttonCopyToBuffer.Location = new System.Drawing.Point(142, 344);
+            this.buttonCopyToBuffer.Name = "buttonCopyToBuffer";
+            this.buttonCopyToBuffer.Size = new System.Drawing.Size(249, 44);
+            this.buttonCopyToBuffer.TabIndex = 8;
+            this.buttonCopyToBuffer.Text = "Copy config this PC on buffer";
+            this.buttonCopyToBuffer.UseVisualStyleBackColor = true;
+            this.buttonCopyToBuffer.Click += new System.EventHandler(this.buttonCopyToBuffer_Click);
+            // 
+            // CPU
+            // 
+            this.CPU.CategoryName = "Processor";
+            this.CPU.CounterName = "% Processor Time";
+            this.CPU.InstanceName = "_Total";
+            // 
+            // temp_cpu
+            // 
+            this.temp_cpu.AutoSize = true;
+            this.temp_cpu.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.temp_cpu.ForeColor = System.Drawing.Color.White;
+            this.temp_cpu.Location = new System.Drawing.Point(20, 344);
+            this.temp_cpu.Name = "temp_cpu";
+            this.temp_cpu.Size = new System.Drawing.Size(114, 15);
+            this.temp_cpu.TabIndex = 9;
+            this.temp_cpu.Text = "TEMP_VALUE_CPU";
+            // 
+            // timerUpdateCPU
+            // 
+            this.timerUpdateCPU.Enabled = true;
+            this.timerUpdateCPU.Interval = 2500;
+            this.timerUpdateCPU.Tick += new System.EventHandler(this.timerUpdateCPU_Tick);
+            // 
+            // temp_ram
+            // 
+            this.temp_ram.AutoSize = true;
+            this.temp_ram.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.temp_ram.ForeColor = System.Drawing.Color.White;
+            this.temp_ram.Location = new System.Drawing.Point(20, 366);
+            this.temp_ram.Name = "temp_ram";
+            this.temp_ram.Size = new System.Drawing.Size(116, 15);
+            this.temp_ram.TabIndex = 10;
+            this.temp_ram.Text = "TEMP_VALUE_RAM";
+            // 
+            // RAM
+            // 
+            this.RAM.CategoryName = "Memory";
+            this.RAM.CounterName = "% Committed Bytes in Use";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(403, 302);
+            this.ClientSize = new System.Drawing.Size(403, 400);
+            this.Controls.Add(this.temp_ram);
+            this.Controls.Add(this.temp_cpu);
+            this.Controls.Add(this.buttonCopyToBuffer);
             this.Controls.Add(this.labelRAMString);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.labelVideoAdapter);
@@ -154,6 +218,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CPU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RAM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +235,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labelRAMString;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button buttonCopyToBuffer;
+        private System.Diagnostics.PerformanceCounter CPU;
+        private System.Windows.Forms.Label temp_cpu;
+        private System.Windows.Forms.Timer timerUpdateCPU;
+        private System.Windows.Forms.Label temp_ram;
+        private System.Diagnostics.PerformanceCounter RAM;
     }
 }
 
