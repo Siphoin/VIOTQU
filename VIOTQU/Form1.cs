@@ -27,7 +27,8 @@ namespace VIOTQU
             labelProcessor.Text = config.processorName;
             // clear config use Dispose
             config.Dispose();
-
+            temp_cpu.Text = "";
+            temp_ram.Text = "";
 
 
         }
