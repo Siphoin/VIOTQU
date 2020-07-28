@@ -13,7 +13,6 @@ namespace VIOTQU
 {
     public partial class Form1 : Form
     {
-        private ToolStripLabel label_ram_context_menu;
         public Form1()
         {
             // ini form
